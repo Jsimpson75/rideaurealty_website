@@ -31,6 +31,7 @@ A modern, professional real estate website built with Next.js, React, and Tailwi
 
 - Node.js 18+ 
 - npm or yarn
+- Patience
 
 ### Installation
 
