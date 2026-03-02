@@ -121,11 +121,17 @@ To use your own office location:
 
 The app is a **static SPA** (no server-side rendering). Use any static host.
 
-### GitHub Pages
+### GitHub Pages (recommended)
 
-1. Build: `npm run build`
-2. Publish the **`dist/`** folder to the `gh-pages` branch or to GitHub Actions.
-3. If the site is at `https://<user>.github.io/<repo>/`, set `base: '/<repo>/'` in `vite.config.ts` and rebuild.
+A workflow in `.github/workflows/deploy.yml` builds and deploys on every push to `main`.
+
+1. In the repo on GitHub: **Settings → Pages**
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+3. Push to `main`; the workflow runs and publishes the site.
+
+The site will be at `https://<user>.github.io/<repo>/`. The build uses the repo name for the base path automatically.
+
+**Optional (deploy from your machine):** Run `npm run deploy` to build and push `dist/` to the `gh-pages` branch. Then set **Source** to “Deploy from a branch”, branch `gh-pages`, folder `/ (root)`.
 
 ### Other options
 

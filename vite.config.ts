@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-  // Required for GitHub Pages: site is served at https://<user>.github.io/rideaurealty_website/
-  base: '/rideaurealty_website/',
+  // Required for GitHub Pages. CI sets VITE_BASE_PATH to /<repo-name>/; local default below.
+  base: process.env.VITE_BASE_PATH ?? '/rideaurealty_website/',
   plugins: [react()],
   resolve: {
     alias: {

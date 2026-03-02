@@ -15,7 +15,7 @@ export default function Footer() {
           >
             <div className="flex items-center mb-4">
               <img
-                src="/images/rideau-realty-logo.png"
+                src={`${import.meta.env.BASE_URL}images/rideau-realty-logo.png`}
                 alt="Rideau Realty Limited Brokerage"
                 className="h-10 w-auto mr-3"
               />

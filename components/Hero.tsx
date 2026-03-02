@@ -27,7 +27,7 @@ export default function Hero() {
             className="mb-4"
           >
             <img
-              src="/images/rideau-realty-logo-large.png"
+              src={`${import.meta.env.BASE_URL}images/rideau-realty-logo-large.png`}
               alt="Rideau Realty Limited Brokerage"
               className="mx-auto h-32 sm:h-40 md:h-48 lg:h-56 w-auto filter drop-shadow-2xl"
             />

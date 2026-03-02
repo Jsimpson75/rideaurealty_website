@@ -53,7 +53,7 @@ export default function Header() {
           >
             <Link to="/" className="flex-shrink-0 flex items-center hover:opacity-80 transition-opacity duration-200">
               <img
-                src="/images/rideau-realty-logo.png"
+                src={`${import.meta.env.BASE_URL}images/rideau-realty-logo.png`}
                 alt="Rideau Realty Limited Brokerage"
                 className="h-14 sm:h-20 w-auto mr-2"
               />
