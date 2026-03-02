@@ -1,6 +1,6 @@
 # Rideau Realty Website
 
-A modern, professional real estate website for Rideau Realty — built with **React**, **Vite**, and **Tailwind CSS**. The app is a client-side SPA suitable for static hosting (e.g. GitHub Pages).
+A modern, professional real estate website for Rideau Realty — built with **React**, **Vite**, and **Tailwind CSS**. The app is a client-side SPA suitable for static hosting (e.g. GitHub Pages). Authored by Jamie Simpson.
 
 ## Features
 
