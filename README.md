@@ -129,7 +129,7 @@ A workflow in `.github/workflows/deploy.yml` builds and deploys on every push to
 2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
 3. Push to `main`; the workflow runs and publishes the site.
 
-The site will be at `https://<user>.github.io/<repo>/`. The build uses the repo name for the base path automatically.
+The app uses **relative paths only** (Vite `base: './'` and `lib/assets.ts` for images), so it works the same whether deployed at the **domain root** (e.g. `https://<user>.github.io/`) or a **subpath** (e.g. `https://<user>.github.io/rideaurealty_website/`). No config change is needed.
 
 **Optional (deploy from your machine):** Run `npm run deploy` to build and push `dist/` to the `gh-pages` branch. Then set **Source** to “Deploy from a branch”, branch `gh-pages`, folder `/ (root)`.
 
@@ -143,7 +143,11 @@ The site will be at `https://<user>.github.io/<repo>/`. The build uses the repo 
 
 Listings and property details come from the Realtor.ca API via RapidAPI. The app uses client-side caching to limit requests.
 
-- **Optional:** Move the API key to an env variable (e.g. `VITE_RAPIDAPI_KEY`) and use `import.meta.env.VITE_RAPIDAPI_KEY` in `lib/api.ts`. Add a `.env.example` and keep `.env` out of version control.
+**Configuration:** The API key is read from the environment (never commit it).
+
+1. **Local:** Copy `.env.example` to `.env` and set `VITE_RAPIDAPI_KEY` to your RapidAPI key. Get a key at [RapidAPI](https://rapidapi.com) (subscribe to the Realty-in-Ca API).
+2. **GitHub Actions (deploy):** In the repo go to **Settings → Secrets and variables → Actions**, add a secret named `VITE_RAPIDAPI_KEY` with your key. The deploy workflow uses it when building.
+3. **Rotate** any key that was ever committed to git (create a new key in RapidAPI and revoke the old one).
 
 ## Testing
 

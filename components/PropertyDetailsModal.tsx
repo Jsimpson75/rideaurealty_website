@@ -23,22 +23,12 @@ import {
   User
 } from 'lucide-react'
 import { fetchPropertyDetails, type PropertyDetails, type PropertyListing } from '@/lib/api'
+import { getAgentPhoto } from '@/lib/assets'
 
 interface PropertyDetailsModalProps {
   isOpen: boolean
   onClose: () => void
   property: PropertyListing
-}
-
-// Helper function to get agent photo based on name
-const getAgentPhoto = (name: string) => {
-  const nameLower = name.toLowerCase()
-  if (nameLower.includes('zach shea')) return '/images/team/zach-shea.jpg'
-  if (nameLower.includes('scott burns')) return '/images/team/scott-burns.jpg'
-  if (nameLower.includes('steve wells')) return '/images/team/steve-wells.jpg'
-  if (nameLower.includes('joe kozak')) return '/images/team/joe-kozak.jpg'
-  if (nameLower.includes('neve wells')) return '/images/team/neve-wells.jpg'
-  return '/images/team/scott-burns.jpg' // Default fallback
 }
 
 export default function PropertyDetailsModal({ isOpen, onClose, property }: PropertyDetailsModalProps) {

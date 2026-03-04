@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { assetUrl } from '@/lib/assets'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -53,7 +54,7 @@ export default function Header() {
           >
             <Link to="/" className="flex-shrink-0 flex items-center hover:opacity-80 transition-opacity duration-200">
               <img
-                src={`${import.meta.env.BASE_URL}images/rideau-realty-logo.png`}
+                src={assetUrl('images/rideau-realty-logo.png')}
                 alt="Rideau Realty Limited Brokerage"
                 className="h-14 sm:h-20 w-auto mr-2"
               />

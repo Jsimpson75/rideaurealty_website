@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Phone, Mail, User, Award } from 'lucide-react'
+import { assetUrl } from '@/lib/assets'
 
 const teamMembers = [
   {
@@ -9,7 +10,7 @@ const teamMembers = [
     business: "613-272-5000",
     fax: "613-272-2546",
     email: "scottburnsrealty@gmail.com",
-    photo: "/images/team/scott-burns.jpg",
+    photo: "images/team/scott-burns.jpg",
     isOwner: true
   },
   {
@@ -19,7 +20,7 @@ const teamMembers = [
     business: "613-272-5000",
     fax: "613-272-2546",
     email: "zachshearealty@gmail.com",
-    photo: "/images/team/zach-shea.jpg",
+    photo: "images/team/zach-shea.jpg",
     isOwner: false
   },
   {
@@ -29,7 +30,7 @@ const teamMembers = [
     business: "613-272-5000",
     fax: "613-272-2546",
     email: "steve@rideaurealty.ca",
-    photo: "/images/team/steve-wells.jpg",
+    photo: "images/team/steve-wells.jpg",
     isOwner: false
   },
   {
@@ -39,7 +40,7 @@ const teamMembers = [
     business: "613-272-5000",
     fax: "613-272-2546",
     email: "joekozakrealty@gmail.com",
-    photo: "/images/team/joe-kozak.jpg",
+    photo: "images/team/joe-kozak.jpg",
     isOwner: false
   },
   {
@@ -49,7 +50,7 @@ const teamMembers = [
     business: "613-272-5000",
     fax: "613-272-2546",
     email: "nevewellsrealty@gmail.com",
-    photo: "/images/team/neve-wells.jpg",
+    photo: "images/team/neve-wells.jpg",
     isOwner: false
   }
 ]
@@ -88,7 +89,7 @@ export default function Team() {
               <div className={`${member.isOwner ? 'bg-brand-600' : 'bg-gray-700'} p-6 text-white text-center`}>
                 <div className="w-20 h-20 mx-auto mb-4 relative">
                   <img
-                    src={member.photo}
+                    src={assetUrl(member.photo)}
                     alt={`${member.name} - ${member.role}`}
                     className="w-20 h-20 rounded-full object-cover border-4 border-white/20"
                     onError={(e) => {

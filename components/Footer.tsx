@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Facebook, Twitter, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react'
+import { assetUrl } from '@/lib/assets'
 
 export default function Footer() {
   return (
@@ -15,7 +16,7 @@ export default function Footer() {
           >
             <div className="flex items-center mb-4">
               <img
-                src={`${import.meta.env.BASE_URL}images/rideau-realty-logo.png`}
+                src={assetUrl('images/rideau-realty-logo.png')}
                 alt="Rideau Realty Limited Brokerage"
                 className="h-10 w-auto mr-3"
               />

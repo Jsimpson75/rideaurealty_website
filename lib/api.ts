@@ -168,11 +168,25 @@ interface APIResponse {
   Results: APIPropertyResponse[]
 }
 
-const API_CONFIG = {
-  baseUrl: 'https://realty-in-ca1.p.rapidapi.com',
-  headers: {
-    'x-rapidapi-host': 'realty-in-ca1.p.rapidapi.com',
-    'x-rapidapi-key': '5be04ccacbmsh719915338a197fdp1a839djsn7b6a94dec832'
+const RAPIDAPI_HOST = import.meta.env.VITE_RAPIDAPI_HOST ?? 'realty-in-ca1.p.rapidapi.com'
+const RAPIDAPI_KEY = import.meta.env.VITE_RAPIDAPI_KEY
+
+function getApiConfig(): { baseUrl: string; headers: Record<string, string> } {
+  if (!RAPIDAPI_KEY || typeof RAPIDAPI_KEY !== 'string') {
+    if (import.meta.env.DEV) {
+      throw new Error(
+        'Missing VITE_RAPIDAPI_KEY. Add it to a .env file (see .env.example). ' +
+          'Get a key at https://rapidapi.com and rotate any key that was committed to git.'
+      )
+    }
+    throw new Error('Realtor API is not configured. Please set VITE_RAPIDAPI_KEY.')
+  }
+  return {
+    baseUrl: `https://${RAPIDAPI_HOST}`,
+    headers: {
+      'x-rapidapi-host': RAPIDAPI_HOST,
+      'x-rapidapi-key': RAPIDAPI_KEY
+    }
   }
 }
 
@@ -341,6 +355,7 @@ export async function fetchPropertyListings(params: {
   } = params
   
   try {
+    const API_CONFIG = getApiConfig()
     const url = new URL(`${API_CONFIG.baseUrl}/agents/get-listings`)
     url.searchParams.append('RecordsPerPage', recordsPerPage.toString())
     url.searchParams.append('SortOrder', sortOrder)
@@ -437,6 +452,7 @@ export function filterProperties(
 
 export async function fetchPropertyDetails(propertyId: string, referenceNumber: string): Promise<PropertyDetails> {
   try {
+    const API_CONFIG = getApiConfig()
     const url = new URL(`${API_CONFIG.baseUrl}/properties/detail`)
     url.searchParams.append('PropertyID', propertyId)
     url.searchParams.append('ReferenceNumber', referenceNumber)

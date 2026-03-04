@@ -6,16 +6,7 @@ import Footer from '@/components/Footer'
 import PropertyDetailsModal from '@/components/PropertyDetailsModal'
 import { fetchPropertyListings, type PropertyListing, type PropertyAgent } from '@/lib/api'
 import { ApiCache } from '@/lib/cache'
-
-const getAgentPhoto = (name: string) => {
-  const nameLower = name.toLowerCase()
-  if (nameLower.includes('zach shea')) return '/images/team/zach-shea.jpg'
-  if (nameLower.includes('scott burns')) return '/images/team/scott-burns.jpg'
-  if (nameLower.includes('steve wells')) return '/images/team/steve-wells.jpg'
-  if (nameLower.includes('joe kozak')) return '/images/team/joe-kozak.jpg'
-  if (nameLower.includes('neve wells')) return '/images/team/neve-wells.jpg'
-  return '/images/team/scott-burns.jpg'
-}
+import { getAgentPhoto } from '@/lib/assets'
 
 const fallbackProperties: PropertyListing[] = [
   {

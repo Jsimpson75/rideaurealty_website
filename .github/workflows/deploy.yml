@@ -32,8 +32,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # So asset paths work at https://<user>.github.io/<repo>/
-          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_RAPIDAPI_KEY: ${{ secrets.VITE_RAPIDAPI_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

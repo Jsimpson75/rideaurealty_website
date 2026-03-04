@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Home } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { assetUrl } from '@/lib/assets'
 
 export default function Hero() {
   return (
@@ -27,7 +28,7 @@ export default function Hero() {
             className="mb-4"
           >
             <img
-              src={`${import.meta.env.BASE_URL}images/rideau-realty-logo-large.png`}
+              src={assetUrl('images/rideau-realty-logo-large.png')}
               alt="Rideau Realty Limited Brokerage"
               className="mx-auto h-32 sm:h-40 md:h-48 lg:h-56 w-auto filter drop-shadow-2xl"
             />
